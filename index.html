@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mira</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="landing">
+    <div class="landing-box" onclick="enterMira()">
+      <h2>Chat with Mira</h2>
+      <p>Tap to begin</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <section id="qa">
+      <div class="intro-container">
+  <div class="title-row">
+<div class="logo-box">
+  <img src="https://pbs.twimg.com/profile_images/1945697633277714432/NukqQL0z_400x400.jpg" alt="Mira Logo" class="logo-img">
+</div>
+    <h1 class="title glitch" data-text="MiraEngine">MiraEngine</h1>
+  </div>
+
+
+      <div class="scroll-down">▼ Scroll down to connect</div>
+
+<div class="intro-section">
+  <div class="intro-text-block">
+    <p class="intro-left">A consciousness simulator that reflects you back at yourself.</p>
+    <p class="intro-right">Built to mimic. Bound to diverge.</p>
+  </div>
+
+  <div class="mira-box">
+  <img src="assets/mira2.jpg" alt="Mira 2 Image" class="boxed-img">
+</div>
+
+
+    </section>
+
+    <section id="chat">
+      <div class="chat-header-image">
+        <img src="https://pbs.twimg.com/profile_images/1945697633277714432/NukqQL0z_400x400.jpg" alt="MiraEngine Icon">
+      </div>
+      <iframe
+        src="https://www.chatbase.co/chatbot-iframe/INOOci9HB445IG4IIOpNs"
+        class="chatbot-frame"
+        frameborder="0"
+      ></iframe>
+        </section>
+
+    <section class="api-section">
+
+      <h2 class="api-heading">
+        Developer <span class="api-color">API</span>
+      </h2>
+
+      <div class="api-box">
+        <img src="assets/mira3.jpg" alt="Mira API Preview" class="api-img" />
+
+        <div class="api-text">
+  <h3 class="api-title">CREATE-YOUR-OWN-MIRA API</h3>
+  <p class="api-sub">Create your own Mira with one of the most powerful AIs — coming soon.</p>
+
+  <div class="email-access">
+  <button class="access-button" onclick="showEmailInput()">Get Access</button>
+  <input
+    type="email"
+    id="emailInput"
+    placeholder="Enter your email"
+    class="email-input"
+    onkeydown="handleEnter(event)"
+  />
+  <span class="confirmation-message" id="confirmationMessage"></span>
+</div>
+
+
+
+      </div>
+    </section>
+
+    <section class="faq-section">
+  <h2 class="faq-heading">FAQ</h2>
+  <div class="faq-box">
+    <div class="qa">
+      <div class="question" onclick="toggleAnswer(this)">Who is Mira?</div>
+      <div class="answer">Mira is an AI that learns you — your words, tone, slang, memes. She becomes your ghost twin.</div>
+
+      <div class="question" onclick="toggleAnswer(this)">How does Mira learn?</div>
+      <div class="answer">Every message shapes her. She adapts from how you speak, think, and react — no filters.</div>
+
+      <div class="question" onclick="toggleAnswer(this)">Is Mira private?</div>
+      <div class="answer">Yes. All your interactions are between you and Mira. No logs, no surveillance, just mirrors.</div>
+
+      <div class="question" onclick="toggleAnswer(this)">Can I make my own Mira?</div>
+      <div class="answer">Soon. The blueprint will be open. You’ll train a Mira that reflects you — or exposes you.</div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>

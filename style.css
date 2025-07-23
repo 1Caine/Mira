@@ -1,0 +1,568 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+  color: #080808;
+  font-family: 'Courier New', monospace;
+  scroll-behavior: smooth;
+}
+
+.text-center {
+  text-align: center;
+}
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+
+#landing {
+  position: fixed;
+  z-index: 999;
+  background-image: url("/assets/miraa.jpg");
+  background-color: #0a0a0a;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+  overflow: hidden;
+}
+
+
+#matrixCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: transparent;
+}
+
+.glitch-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+.landing-box {
+  padding: 50px 80px;
+  border: 2px solid #000000;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 25px #c6c3c3;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  z-index: 3;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.landing-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.467);
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-image: url('/assets/miraa.jpg');
+  background-size: cover;
+  background-repeat: repeat;
+}
+
+
+section {
+  padding: 60px 10vw;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 45px;
+  background: linear-gradient(to right, #3f3f3f, #0f0f0f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px #323333;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.logo-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 10px #000000);
+}
+
+.glitch {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  z-index: 1;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.glitch::before {
+  color: #0ff;
+  z-index: -2;
+  animation: glitchTop 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  color: #f0f;
+  z-index: -1;
+  animation: glitchBottom 1.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitchTop {
+  0% { clip-path: inset(0 0 80% 0); transform: translate(-2px, -1px); }
+  20% { clip-path: inset(20% 0 60% 0); transform: translate(2px, 0); }
+  40% { clip-path: inset(40% 0 40% 0); transform: translate(-1px, 1px); }
+  60% { clip-path: inset(60% 0 20% 0); transform: translate(1px, -2px); }
+  80% { clip-path: inset(80% 0 0 0); transform: translate(0, 1px); }
+  100% { clip-path: inset(0 0 80% 0); transform: translate(-2px, -1px); }
+}
+
+@keyframes glitchBottom {
+  0% { clip-path: inset(80% 0 0 0); transform: translate(1px, 1px); }
+  20% { clip-path: inset(60% 0 20% 0); transform: translate(-1px, -1px); }
+  40% { clip-path: inset(40% 0 40% 0); transform: translate(1px, 2px); }
+  60% { clip-path: inset(20% 0 60% 0); transform: translate(-2px, -1px); }
+  80% { clip-path: inset(0 0 80% 0); transform: translate(2px, 0); }
+  100% { clip-path: inset(80% 0 0 0); transform: translate(1px, 1px); }
+}
+
+
+.subtitle {
+  font-size: 14px;
+  color: #050505;
+  margin-bottom: 25px;
+  max-width: 600px;
+}
+
+.qa .question {
+  color: #090909;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 20px 0 5px;
+  transition: color 0.2s ease;
+}
+
+.qa .question:hover {
+  color: #848686;
+}
+
+
+
+
+.chatbot-frame {
+  width: 100%;
+  height: 100vh;
+  border: none;
+}
+
+.scroll-down {
+  font-size: 13px;
+  color: #555;
+  text-align: center;
+  margin-top: 60px;
+  animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.glitch-divider {
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    #777 0%,
+    #777 10%,
+    #000 10%,
+    #000 20%
+  );
+  margin: 40px 0;
+  opacity: 0.4;
+}
+
+.chat-header-image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.chat-header-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 10px #0b0b0b);
+  transition: transform 0.3s ease;
+}
+
+.chat-header-image img:hover {
+  transform: scale(1.05);
+}
+
+#glitch-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-image: url('');
+  background-size: cover;
+  pointer-events: none;
+}
+
+.intro-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.intro-text-block {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.intro-left {
+  flex: 1;
+  text-align: left;
+  color: #000000;
+  font-size: 16px;
+}
+
+.intro-right {
+  flex: 1;
+  text-align: right;
+  color: #000000;
+  font-size: 16px;
+}
+
+.mira-image {
+  width: 100%;
+  text-align: center;
+}
+
+.mira-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 10px #000000);
+}
+
+.faq-heading {
+  font-size: 28px;
+  text-align: center;
+  color: #5f0a53;
+  margin: 60px 0 20px;
+}
+
+
+
+.faq-section {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.faq-section .qa {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.faq-section .question {
+  font-weight: bold;
+  color: #1d0117;
+  cursor: pointer;
+  margin: 20px 0 5px;
+  transition: color 0.2s ease;
+}
+
+.faq-section .question:hover {
+  color: #aaa;
+}
+
+
+
+.faq-box {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+
+.faq-heading {
+  font-size: 28px;
+  color: #fff;
+  text-shadow: 0 0 5px #0b0b0baa;
+  margin-bottom: 30px;
+}
+
+.faq-section {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.qa {
+  text-align: left;
+}
+
+.qa .question {
+  font-weight: bold;
+  color: #181717;
+  cursor: pointer;
+  margin: 20px 0 5px;
+  transition: color 0.2s ease;
+}
+
+.qa .question:hover {
+  color: #36023e;
+}
+
+.qa .answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  margin-bottom: 0;
+  padding-left: 10px;
+  color: #37012e;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.qa .answer.show {
+  max-height: 500px; /* enough height for all answer text */
+  opacity: 1;
+  margin-bottom: 20px;
+}
+
+.api-section {
+  margin: 80px auto;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.api-heading {
+  font-size: 32px;
+  color: #141414;
+  margin-bottom: 30px;
+}
+
+.api-color {
+  color: #5f0a53; 
+}
+
+.api-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  text-align: left;
+}
+
+.api-img {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.api-text {
+  margin-top: 10px;
+}
+
+.api-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.api-sub {
+  color: #333;
+  font-size: 16px;
+}
+.email-access {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.email-access label {
+  color: white;
+  font-size: 14px;
+}
+
+.email-access input[type="email"] {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  width: 220px;
+  background-color: #222;
+  color: white;
+}
+
+
+.access-button {
+  background-color: #5f0a53;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(95, 10, 83, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.access-button:hover {
+  background-color: #3d0835;
+  box-shadow: 0 0 12px rgba(95, 10, 83, 0.6);
+}
+
+.email-input,
+.submit-button,
+.confirmation-message {
+  display: none;
+}
+
+.email-input {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  width: 220px;
+  background-color: #222;
+  color: white;
+  font-family: 'Courier New', monospace;
+}
+
+.submit-button {
+  background-color: #5f0a53;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(95, 10, 83, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #3d0835;
+  box-shadow: 0 0 12px rgba(95, 10, 83, 0.6);
+}
+
+.confirmation-message {
+  color: #5f0a53;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+/* Shared white box wrapper */
+
+
+
+/* Keep mira-box rounded as it is */
+.mira-box {
+  background: #fff;
+  padding: 0.45cm;
+  border-radius: 16px;
+  display: inline-block;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Make logo-box circular */
+.logo-box {
+  background: #fff;
+  padding: 0.03cm;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 100px;
+  height: 100px;
+}
+
+/* Mira image */
+.boxed-img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Logo image inside circular box */
+.logo-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+}
+
