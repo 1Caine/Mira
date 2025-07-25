@@ -23,7 +23,7 @@ html, body {
 #landing {
   position: fixed;
   z-index: 999;
-  background-image: url("/assets/miraa.jpg");
+  background-image: url("assets/miraa.jpg");
   background-color: #0a0a0a;
   background-size: cover;
   background-position: center;
@@ -87,7 +87,7 @@ html, body {
 .content-wrapper {
   display: flex;
   flex-direction: column;
-  background-image: url('/assets/miraa.jpg');
+  background-image: url('assets/miraa.jpg');
   background-size: cover;
   background-repeat: repeat;
 }
