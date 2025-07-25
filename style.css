@@ -555,7 +555,7 @@ section {
   display: block;
 }
 
-/* Logo image inside circular box */
+/* Logo image inside circ box */
 .logo-img {
   width: 80px;
   height: 80px;
@@ -563,7 +563,6 @@ section {
   display: block;
 }
 
-/* NAVBAR */
 .top-nav {
   position: fixed;
   top: 0;
@@ -598,14 +597,8 @@ section {
   background: #5f0a53;
 }
 
-/* Prevent fixed nav from covering content */
-body {
-  padding-top: 60px; /* height of nav + some breathing room */
-}
-
-/* Optional: override section padding if needed */
 section {
-  scroll-margin-top: 80px; /* so anchors scroll below the nav */
+  scroll-margin-top: 80px; 
 }
 
 
