@@ -524,11 +524,9 @@ section {
   margin-left: 10px;
 }
 
-/* Shared white box wrapper */
 
 
 
-/* Keep mira-box rounded as it is */
 .mira-box {
   background: #fff;
   padding: 0.45cm;
@@ -537,7 +535,6 @@ section {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Make logo-box circular */
 .logo-box {
   background: #fff;
   padding: 0.03cm;
@@ -565,4 +562,50 @@ section {
   border-radius: 50%;
   display: block;
 }
+
+/* NAVBAR */
+.top-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(10,10,10,0.9);
+  padding: 17px 0;
+  z-index: 1000;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  font-family: 'Courier New', monospace;
+}
+
+.top-nav ul {
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  gap: 40px;
+  list-style: none;
+  justify-content: center;
+}
+
+.top-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.top-nav a:hover {
+  background: #5f0a53;
+}
+
+/* Prevent fixed nav from covering content */
+body {
+  padding-top: 60px; /* height of nav + some breathing room */
+}
+
+/* Optional: override section padding if needed */
+section {
+  scroll-margin-top: 80px; /* so anchors scroll below the nav */
+}
+
 
