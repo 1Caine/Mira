@@ -1,48 +1,3 @@
-const canvas = document.getElementById('matrixCanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const characters = '零一二三四五六七八九冥幽幻灵梦神脑电火光影';
-const charArray = characters.split('');
-const fontSize = 14;
-const columns = Math.floor(canvas.width / fontSize);
-const drops = new Array(columns).fill(1);
-
-function drawMatrixRain() {
-  ctx.fillStyle = 'rgba(10, 10, 10, 0.02)';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = '#ff006aff'; // neon greenish blue
-  ctx.font = fontSize + 'px monospace';
-
-  for (let i = 0; i < drops.length; i++) {
-    const char = charArray[Math.floor(Math.random() * charArray.length)];
-    ctx.fillText(char, i * fontSize, drops[i] * fontSize);
-
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-      drops[i] = 0;
-    }
-
-    drops[i]++;
-  }
-}
-
-setInterval(drawMatrixRain, 50);
-
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-
-function enterMira() {
-  const landing = document.getElementById("landing");
-  landing.style.opacity = 0;
-  setTimeout(() => {
-    landing.style.display = "none";
-  }, 400);
-}
-
 function toggleAnswer(element) {
   const answer = element.nextElementSibling;
   answer.classList.toggle("show");
@@ -75,5 +30,30 @@ function handleEnter(e) {
   }
 }
 
+function copyCA() {
+    const caText = document.getElementById("caAddress").textContent;
+    const copyBtn = document.querySelector(".copy-button");
 
+    navigator.clipboard.writeText(caText).then(() => {
+      copyBtn.textContent = "Copied!";
+      setTimeout(() => {
+        copyBtn.textContent = "Copy";
+      }, 5000); 
+    });
+  }
 
+document.querySelectorAll('.mira-image-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      // Toggle zoom class on clicked image
+      const isZoomed = img.classList.contains('zoomed');
+      document.querySelectorAll('.mira-image-item img').forEach(i => i.classList.remove('zoomed'));
+      if (!isZoomed) img.classList.add('zoomed');
+    });
+  });
+
+  // Optional: Click outside to remove zoom
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.mira-image-item')) {
+      document.querySelectorAll('.mira-image-item img').forEach(i => i.classList.remove('zoomed'));
+    }
+  });
