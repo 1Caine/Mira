@@ -88,8 +88,11 @@ html, body {
   display: flex;
   flex-direction: column;
   background-image: url('assets/miraa.jpg');
-  background-size: cover;
-  background-repeat: repeat;
+  background-size: 100% auto;
+background-repeat: no-repeat;
+background-position: top center;
+background-attachment: fixed;
+
 }
 
 
