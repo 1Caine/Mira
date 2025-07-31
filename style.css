@@ -532,7 +532,7 @@ section {
 
 .mira-box {
   background: #fff;
-  padding: 0.45cm;
+  padding: 0.5cm;
   border-radius: 16px;
   display: inline-block;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -540,7 +540,7 @@ section {
 
 .logo-box {
   background: #fff;
-  padding: 0.03cm;
+  padding: 0.01cm;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -736,7 +736,7 @@ section {
 }
 
 #mira-section {
-  padding: 60px 10vw;
+  padding: 30px 10vw;
   background: rgba(255, 255, 255, 0.05);
   margin-top: 60px;
   border-radius: 16px;
