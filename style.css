@@ -222,7 +222,7 @@ section {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  filter: drop-shadow(0 0 10px #0b0b0b);
+  filter: drop-shadow(0 0 10px #045802);
   transition: transform 0.3s ease;
 }
 
@@ -501,14 +501,14 @@ section {
 
 .logo-box {
   background: #fff;
-  padding: 0.01cm;
+  padding: 0.01px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
 }
 
 /* Mira image */
@@ -791,8 +791,3 @@ section {
   transform: scale(1);
   opacity: 1;
 }
-
-
-
-
-
