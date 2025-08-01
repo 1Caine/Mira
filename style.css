@@ -53,6 +53,30 @@ background-attachment: fixed;
 
 }
 
+.content-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.content-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('assets/miraa.jpg');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+  filter: blur(3px); /* ← Tweak this value for more/less blur */
+  z-index: -1;
+}
+
 
 section {
   padding: 60px 10vw;
@@ -791,3 +815,8 @@ section {
   transform: scale(1);
   opacity: 1;
 }
+
+
+
+
+
