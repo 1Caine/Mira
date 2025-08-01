@@ -1,7 +1,19 @@
-function toggleAnswer(element) {
-  const answer = element.nextElementSibling;
-  answer.classList.toggle("show");
-}
+function toggleAnswer(toggleEl) {
+    const icon = toggleEl.querySelector('.icon');
+    const answer = toggleEl.nextElementSibling;
+
+    const isOpen = answer.classList.contains('show');
+
+    // Close all answers and reset icons
+    document.querySelectorAll('.answer').forEach(a => a.classList.remove('show'));
+    document.querySelectorAll('.question-toggle .icon').forEach(i => i.textContent = '+');
+
+    // If it wasn't open, open this one
+    if (!isOpen) {
+      answer.classList.add('show');
+      icon.textContent = '−'; // Unicode minus sign
+    }
+  }
 
 function showEmailInput() {
   const emailInput = document.getElementById("emailInput");
