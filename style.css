@@ -43,34 +43,37 @@ html, body {
 
 
 .content-wrapper {
-display: flex;
-flex-direction: column;
-background-image: url('assets/miraa.jpg');
-background-size: 100% auto;
-background-repeat: no-repeat;
-background-position: top center;
-background-attachment: fixed;
-position: relative;
-display: flex;
-flex-direction: column;
-z-index: 0;
-overflow: hidden;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  /* Background image (non-blurred fallback, visible behind transparent elements) */
+  background-image: url('assets/miraa.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
 }
 
 .content-wrapper::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('assets/miraa.jpg');
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-attachment: fixed;
-    filter: blur(3px); 
-    z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* Blurred background overlay */
+  background-image: url('assets/miraa.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+
+  filter: blur(1px);
+  z-index: -1;
 }
 
 
@@ -811,6 +814,7 @@ section {
   transform: scale(1);
   opacity: 1;
 }
+
 
 
 
